@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
 //routes
-const userRoutes = require('./src/routes/user');
+const authRoutes = require('./src/routes/auth');
 
 //config env variables
 dotenv.config();
@@ -19,14 +19,14 @@ const connectDB = async () => {
   const conn = await mongoose.connect(process.env.DB, {
     useUnifiedTopology: true,
     useNewUrlParser: true,
-    useCreateIndex:true
+    useCreateIndex: true,
   });
   console.log(`MongoDB Connected`);
 };
 connectDB();
 
 //middleware
-app.use('/api', userRoutes);
+app.use('/api', authRoutes);
 
 //listning of server
 app.listen(process.env.PORT, () => {
