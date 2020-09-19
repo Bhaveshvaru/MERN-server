@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 
 //routes
 const authRoutes = require('./src/routes/auth');
-
+const adminRoutes = require('./src/routes/admin/auth');
 //config env variables
 dotenv.config();
 
@@ -27,6 +27,7 @@ connectDB();
 
 //middleware
 app.use('/api', authRoutes);
+app.use('/api', adminRoutes);
 
 //listning of server
 app.listen(process.env.PORT, () => {
