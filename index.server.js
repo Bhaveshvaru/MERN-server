@@ -4,6 +4,9 @@ const dotenv = require('dotenv');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
+//routes
+const userRoutes = require('./src/routes/user');
+
 //config env variables
 dotenv.config();
 
@@ -21,17 +24,8 @@ const connectDB = async () => {
 };
 connectDB();
 
-app.get('/', (req, res, next) => {
-  res.status(200).json({
-    message: 'hello there!',
-  });
-});
-
-app.post('/', (req, res, next) => {
-  res.status(200).json({
-    message: req.body,
-  });
-});
+//middleware
+app.use('/api', userRoutes);
 
 //listning of server
 app.listen(process.env.PORT, () => {
