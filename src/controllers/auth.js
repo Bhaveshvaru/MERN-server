@@ -13,6 +13,7 @@ exports.signup = (req, res) => {
       lastname,
       email,
       password,
+      role: 'user',
       username: Math.random().toString(),
     });
     _user.save((err, data) => {

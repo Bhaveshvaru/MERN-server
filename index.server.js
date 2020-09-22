@@ -9,6 +9,7 @@ const authRoutes = require('./src/routes/auth');
 const adminRoutes = require('./src/routes/admin/auth');
 const categoryRoutes = require('./src/routes/category');
 const productRoutes = require('./src/routes/product');
+const cartRoutes = require('./src/routes/cart');
 //config env variables
 dotenv.config();
 
@@ -32,6 +33,7 @@ app.use('/api', authRoutes);
 app.use('/api', adminRoutes);
 app.use('/api', categoryRoutes);
 app.use('/api', productRoutes);
+app.use('/api', cartRoutes);
 
 //listning of server
 app.listen(process.env.PORT, () => {
