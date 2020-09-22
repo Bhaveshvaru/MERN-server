@@ -8,6 +8,7 @@ const mongoose = require('mongoose');
 const authRoutes = require('./src/routes/auth');
 const adminRoutes = require('./src/routes/admin/auth');
 const categoryRoutes = require('./src/routes/category');
+const productRoutes = require('./src/routes/product');
 //config env variables
 dotenv.config();
 
@@ -30,6 +31,7 @@ connectDB();
 app.use('/api', authRoutes);
 app.use('/api', adminRoutes);
 app.use('/api', categoryRoutes);
+app.use('/api', productRoutes);
 
 //listning of server
 app.listen(process.env.PORT, () => {
