@@ -3,6 +3,7 @@ const app = express();
 const dotenv = require('dotenv');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const path = require('path');
 
 //routes
 const authRoutes = require('./src/routes/auth');
@@ -30,6 +31,7 @@ connectDB();
 
 //middleware
 app.use('/api', authRoutes);
+app.use('/public', express.static(path.join(__dirname, 'uploads')));
 app.use('/api', adminRoutes);
 app.use('/api', categoryRoutes);
 app.use('/api', productRoutes);
